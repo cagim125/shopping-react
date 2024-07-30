@@ -9,13 +9,17 @@
     justify-content: center;
     
     .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
       padding: 20px;
     }
 
     .edit {
       background-color: black;
       color: white;
-      padding: 20px;
+      padding: 10px;
+      cursor: pointer;
     }
   }
 }
@@ -39,8 +43,15 @@
       text-align: center;
       line-height: 42px;
       border-right: 1px solid gainsboro;
+      margin-bottom: 25px;
+      cursor: pointer;
 
+      &.selectedTab {
+        background-color: #3D3D4F; // 원하는 배경색으로 변경
+        color: #fff;
+      }
     }
+    
   }
 }
 

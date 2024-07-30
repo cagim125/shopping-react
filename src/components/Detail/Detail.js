@@ -5,6 +5,7 @@ import axios from 'axios';
 import Tab from './Tab';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProduct } from '../../slice/productsSlice';
+import classNames from 'classnames';
 
 export default function Detail() {
 
@@ -37,16 +38,14 @@ export default function Detail() {
     { id: 3, label: '반품/교환정보' }
   ];
 
-  const getTabStyle = (id) => {
-    return selectedTab === id ? 'selected-tab' : '';
-  }
+ 
   const handleEditProduct = () => {
     navigate('/edit');
   }
 
 
 
-  console.log("Product Data:", product);
+  // console.log("Product Data:", product);
   
 
   return (
@@ -75,7 +74,9 @@ export default function Detail() {
             <li
               key={tab.id}
               onClick={() => {setSelectedTab(tab.id); setTab(tab.id)}}
-              className={getTabStyle(tab.id)}
+              className={classNames({
+                [styles.selectedTab]: selectedTab === tab.id
+              })}
             >
               {tab.label}
 
