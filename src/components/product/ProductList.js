@@ -52,14 +52,15 @@ export default function ProductList() {
 
   const handleSearch = async () => {
     console.log("search Value : ", searchValue);
-
     dispatch(searchProducts());
+    dispatch(setSearchValue(''));
+    dispatch(setPage(0));
   }
 
   return (
     <div className={styles.product} >
       <div className={styles.search}>
-        <input name='searchText' onChange={handleSearchChange} style={{ display: 'inline' }} />
+        <input name='searchText' value={searchValue} onChange={handleSearchChange} style={{ display: 'inline' }} />
         <button onClick={handleSearch}>검색</button>
       </div>
 
@@ -100,7 +101,7 @@ export default function ProductList() {
         >
           <i class="fi fi-rr-angle-left"></i>
         </button>
-        {Array.from({ length: 10 }, (_, index) => (
+        {Array.from({ length: endPage - startPage }, (_, index) => (
           <button
             key={index}
             onClick={() => handlePageChange(startPage + index)}
