@@ -2,6 +2,7 @@ import React ,{ useState } from 'react'
 import styles from './Nav.module.scss'
 import { Link } from 'react-router-dom'
 import data from './Nav.json'
+import classNames from 'classnames'
 
 export default function Nav() {
 
@@ -33,7 +34,9 @@ export default function Nav() {
         <ul>
           {data.navigation.map((nav, index) => (
             <li key={nav.id}
-                className={activeIndex === index ? "active": ""}
+                className={classNames({
+                  [styles.active]: activeIndex === index
+                })}
                 onClick={() => handleClick(index)}
             >
               <Link className={styles.link}
