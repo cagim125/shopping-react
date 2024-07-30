@@ -1,0 +1,21 @@
+{
+  "navigation" : 
+  [
+    {
+      "id": 0,
+      "path": "/list",
+      "content": "List"
+    },
+    {
+      "id": 1,
+      "path": "/write",
+      "content": "Write"
+    },
+    {
+      "id": 2,
+      "path": "/test",
+      "content": "Test"
+    }
+
+  ]
+}

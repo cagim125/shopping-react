@@ -1,0 +1,55 @@
+@mixin button() {
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: $primary-color;
+  color: white;
+  cursor: pointer;
+}
+
+$primary-color: #333;
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .listbox {
+    width: 550px;
+    padding : 5px;
+    background: #eee;
+    border-bottom: 1px solid $primary-color;
+  
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+  
+    &:hover {
+      background-color: gainsboro;
+    }
+  }
+
+  .pagination{
+    width: 600px;
+    margin: 16px 0;
+    
+    .pageBtn {
+      margin-right: 6px;
+      padding: 10px;
+      border: none;
+      background-color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+
+  
+
+
+
+

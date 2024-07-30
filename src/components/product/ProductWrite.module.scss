@@ -1,0 +1,27 @@
+.addContainer {
+  width: 80%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  input {
+    width: 550px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .addBtn {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+

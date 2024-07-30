@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable */
+import React from 'react';
+import styles from './App.module.scss';
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+//Component
+import Detail from './components/Detail/Detail';
+import Nav from './components/nav/Nav';
+import ProductList from './components/product/ProductList';
+import ProductWrite from './components/product/ProductWrite';
+import ProductEdit from './components/product/ProductEdit';
+import ProductManagementComponent from './components/ProductManagementComponent';
+import { useSelector } from 'react-redux';
+import Main from './components/product/Main';
+
+
+
+// export const Context1 = React.createContext();
+
+
+export default function App() {
+
+  const product = useSelector((state) => state.products.product);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <Nav />
+      
+      <div styles={styles.app}>
+        <Routes>
+          <Route path='/' element={ <Main />} />
+          <Route path='/list' element={<ProductList/>} />
+          <Route path='/write' element={<ProductWrite />} />
+          
+          <Route path='/test' element={<ProductManagementComponent />} />
+          
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/edit" element={ <ProductEdit product={product} />} />
+        </Routes>
+      </div>
+
+    </>
   );
 }
 
-export default App;
+
