@@ -1,4 +1,16 @@
-@mixin item( $width,  $height ) {
+@mixin item( $width,  $height, $overflow ) {
+  width: $width;
+  height: $height;
+  background-color: #eee;
+
+  border-radius: 12px;
+  text-align: center;
+  padding: 20px;
+
+  overflow: $overflow;
+}
+
+@mixin item1( $width,  $height) {
   width: $width;
   height: $height;
   background-color: #eee;
@@ -24,6 +36,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 150px);
     gap: 10px;
+    overflow: hidden; /* 부모 요소에서 넘치는 자식 요소를 숨김 */
 
     grid-template-areas:
     "main main sidebar"
@@ -39,11 +52,12 @@
     .main {
       grid-area: main;
 
-      @include item(100%, 100%);
+      @include item(100%, 465px, hidden);
 
       .item {
         display: flex;
         justify-content: space-between;
+
 
         h4 {
           text-align: left;
@@ -80,7 +94,7 @@
     .main2 {
       grid-area: main2;
 
-      @include item(100%, 100%);
+      @include item(100%, 100%, hidden);
 
       display: flex;
       justify-content: space-evenly;
@@ -104,26 +118,26 @@
     .main3 {
       grid-area: main3;
 
-      @include item(100%, 100%);
+      @include item(100%, 100%, hidden);
     }
 
     .main4 {
       grid-area: main4;
 
-      @include item(100%, 100%);
+      @include item(100%, 100%, hidden);
     }
 
     .main5 {
       grid-area: main5;
 
-      @include item(100%, 100%);
+      @include item(100%, 100%, hidden);
     }
 
     .sidebar {
       
       grid-area: sidebar;
       
-      @include item(100%, 100%);
+      @include item(100%, 465px, scroll);
 
       .title {
         display: flex;
@@ -134,7 +148,9 @@
 
       .nike {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
 
         gap: 15px;
 
@@ -146,6 +162,7 @@
         .nikeItem {
 
           display: flex;
+          flex-direction: column;
           justify-content: flex-start;
           align-items: center;
           gap: 15px;
@@ -165,3 +182,72 @@
       }
     }
   }
+
+  /* Media Queries */
+
+@media (max-width: 1200px) {
+  .grid_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "main main"
+      "main main"
+      "main main"
+      "sidebar sidebar"
+      "sidebar sidebar"
+      "main2 main2"
+      "main3 main4"
+      "main5 main5"
+      "footer footer";
+  }
+
+  .main, .main2, .main3, .main4, .main5, .sidebar {
+    @include item1(100%, auto); // 높이를 자동으로 조절
+  }
+
+}
+
+@media (max-width: 768px) {
+  .grid_container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "sidebar"
+      "main2"
+      "main3"
+      "main4"
+      "main5"
+      "footer";
+  }
+}
+
+@media (max-width: 480px) {
+  .grid_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "main"
+      "sidebar"
+      "main2"
+      "main3"
+      "main4"
+      "main5"
+      "footer";
+  }
+
+  .main, .main2, .main3, .main4, .main5, .sidebar {
+    @include item1(100%, auto); // 높이를 자동으로 조절
+  }
+
+  .product, .category {
+    justify-content: center; // 중앙 정렬
+  }
+
+  .product h4 {
+    width: 60px; // 텍스트 너비 축소
+  }
+
+  .nikeItem img {
+    width: 60px; // 이미지 너비 축소
+    height: 40px; // 이미지 높이 축소
+  }
+}

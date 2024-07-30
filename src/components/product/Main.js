@@ -95,7 +95,7 @@ export default function Main() {
       <div className={styles.main2}>
         {
           data.category.map((category) => (
-            <div className={styles.category}>
+            <div className={styles.category} key={category.id}>
               <Link to={category.path}  >
                 <img src={category.image} style={{width:'54px',height:'54px', backgroundColor:'#eee'}} alt='categoey Img' />
               </Link>
