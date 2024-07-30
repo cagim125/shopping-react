@@ -3,16 +3,21 @@
   [
     {
       "id": 0,
+      "path": "/",
+      "content": "Home"
+    },
+    {
+      "id": 1,
       "path": "/list",
       "content": "List"
     },
     {
-      "id": 1,
+      "id": 2,
       "path": "/write",
       "content": "Write"
     },
     {
-      "id": 2,
+      "id": 3,
       "path": "/test",
       "content": "Test"
     }
