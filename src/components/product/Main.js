@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import data from '../../mainData.json';
 // import { useSelector } from 'react-redux';
 
 import styles from './Main.module.scss'
@@ -92,7 +93,18 @@ export default function Main() {
       </div>
 
       <div className={styles.main2}>
-        <h4>Main2</h4>
+        {
+          data.category.map((category) => (
+            <div className={styles.category}>
+              <Link to={category.path}  >
+                <img src={category.image} style={{width:'54px',height:'54px', backgroundColor:'#eee'}} alt='categoey Img' />
+              </Link>
+              <div>
+                <h4>{category.content}</h4>  
+              </div>
+            </div>
+          ))
+        }
 
       </div>
 
