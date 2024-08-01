@@ -6,7 +6,7 @@ import classNames from 'classnames'
 
 export default function Nav() {
 
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleClick = (index) => {
     setActiveIndex(index);
