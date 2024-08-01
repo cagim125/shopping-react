@@ -1,3 +1,81 @@
+// Variables
+$primary-color: #3498db;    // 메인 색상
+$hover-color: darken($primary-color, 10%);  // Hover 시 색상
+$active-color: darken($primary-color, 20%); // Active 시 색상
+$link-color: #2c3e50;       // 링크 색상
+$text-color: #34495e;       // 기본 텍스트 색상
+$background-color: #ecf0f1; // 배경 색상
+$border-radius: 5px;        // 경계선 둥글기
+$transition-duration: 0.3s; // 애니메이션 지속 시간
+
+@mixin list() {
+  ul {
+    list-style: none;            // 리스트 스타일 제거
+    padding: 0;                  // 패딩 제거
+    display: flex;               // Flexbox로 가로 정렬
+    justify-content: center;     // 가로축 중앙 정렬
+    background-color: $background-color;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 그림자 효과
+    margin: 0 auto;
+    max-width: 800px;            // 최대 폭 제한
+    padding: 10px 20px;
+  }
+  
+  // List Items
+  li {
+    margin: 0 15px;              // 리스트 간격
+    position: relative;          // 포지션 상대 설정 (애니메이션용)
+  
+    &:hover {
+      transform: scale(1.05);  // 호버 시 살짝 확대
+      transition: transform $transition-duration;
+    }
+    
+    &::before {
+      content: '';               // 아래쪽 border 애니메이션
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background-color: $primary-color;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform $transition-duration;
+    }
+  
+    &:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+  
+  // Active Link
+  .active {
+    li {
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left;
+        background-color: $active-color;
+      }
+    }
+  }
+  
+  // Links
+  .link {
+    text-decoration: none;       // 기본 링크 스타일 제거
+    color: $link-color;          // 링크 색상
+    font-weight: bold;           // 굵은 텍스트
+    padding: 10px 15px;
+    transition: color $transition-duration;
+  
+    &:hover {
+      color: $hover-color;       // 호버 시 색상 변경
+    }
+  }
+}
+
 @mixin category() {
   display: flex;
   justify-content: center;
@@ -38,7 +116,7 @@
 }
 
 .container {
-  width: 1280px;
+  width: 80%;
   margin: 0 auto;
 
   margin-top: 20px;
@@ -92,6 +170,10 @@
         }  
       }
     }
+  }
+
+  .container_list{
+    @include list();
   }
 
   .container_category{

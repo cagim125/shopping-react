@@ -46,7 +46,7 @@ export default function Nav() {
           }
         </div>
 
-        <div className={styles.navigation}>
+        <div className={styles.container_list}>
           <ul>
             {data.navigation.map((nav, index) => (
               <li key={nav.id}
