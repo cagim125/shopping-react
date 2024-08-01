@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import data from './mainData.json';
-// import { useSelector } from 'react-redux';
 
 import styles from './Main.module.scss'
 import axios from 'axios';
@@ -55,7 +53,7 @@ export default function Main() {
                     alt='product img' />
                   <div>
                     <h4>{product.name}</h4>
-                    <p>{product.price}</p>
+                    <p>{product.price.toLocaleString('ko-KR')}원</p>
                   </div>
                 </div>
               </Link>
@@ -81,16 +79,15 @@ export default function Main() {
 
                   <div className={styles.nikeContent}>
                     <h4>{nike.name}</h4>
-                    <p>{nike.price}</p>
+                    <p>{nike.price.toLocaleString('ko-KR')}원</p>
                   </div>
                 </div>
               </Link>
             ))
           }
         </div>
-
-
       </div>
+
 
     </div>
 

@@ -13,7 +13,7 @@
 @mixin item1( $width,  $height) {
   width: $width;
   height: $height;
-  // background: rgb(255 254, 255);
+  background-color: white;
 
   border-radius: 12px;
   text-align: center;
@@ -33,7 +33,7 @@
     padding: 0.5rem;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(3, 150px);
     gap: 10px;
     overflow: hidden; /* 부모 요소에서 넘치는 자식 요소를 숨김 */
@@ -126,24 +126,6 @@
       }
     }
 
-    // .main3 {
-    //   grid-area: main3;
-
-    //   @include item(100%, 100%, hidden);
-    // }
-
-    // .main4 {
-    //   grid-area: main4;
-
-    //   @include item(100%, 100%, hidden);
-    // }
-
-    // .main5 {
-    //   grid-area: main5;
-
-    //   @include item(100%, 100%, hidden);
-    // }
-
     .sidebar {
       
       grid-area: sidebar;
@@ -196,24 +178,25 @@
 
   /* Media Queries */
 
-// @media (max-width: 1200px) {
-//   .grid_container {
-//     grid-template-columns: repeat(2, 1fr);
-//     grid-template-areas:
-//       "main main"
-//       "main main"
-//       "main main"
-//       "sidebar sidebar"
-//       "sidebar sidebar"
-//       "main2 main2"
-//       "footer footer";
-//   }
+@media (max-width: 1082px) {
+  .grid_container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 210px);
+    grid-template-areas:
+      "main main"
+      "main main"
+      "main main"
+      "sidebar sidebar"
+      "sidebar sidebar"
+      "main2 main2"
+      "footer footer";
+  }
 
-//   .main, .main2, .main3, .main4, .main5, .sidebar {
-//     @include item1(100%, auto); // 높이를 자동으로 조절
-//   }
+  .main, .main2, .main3, .main4, .main5, .sidebar {
+    @include item1(100%, auto); // 높이를 자동으로 조절
+  }
 
-// }
+}
 
 @media (max-width: 768px) {
   .grid_container {
@@ -222,9 +205,6 @@
       "main"
       "sidebar"
       "main2"
-      "main3"
-      "main4"
-      "main5"
       "footer";
   }
 }
@@ -237,13 +217,10 @@
       "main"
       "sidebar"
       "main2"
-      "main3"
-      "main4"
-      "main5"
       "footer";
   }
 
-  .main, .main2, .main3, .main4, .main5, .sidebar {
+  .main, .main2, .sidebar {
     @include item1(100%, auto); // 높이를 자동으로 조절
   }
 
