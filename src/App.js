@@ -15,6 +15,7 @@ import ProductEdit from './components/product/ProductEdit';
 import ProductManagementComponent from './components/ProductManagementComponent';
 import { useSelector } from 'react-redux';
 import Main from './components/product/Main';
+import Login from './components/user/Login';
 
 
 
@@ -29,18 +30,19 @@ export default function App() {
   return (
     <>
 
-      <Nav />
-      
       <div styles={styles.app}>
+        <Nav />
         <Routes>
-          <Route path='/' element={ <Main />} />
-          <Route path='/list' element={<ProductList/>} />
+          <Route path='/' element={<Main />} />
+          <Route path='/list' element={<ProductList />} />
           <Route path='/write' element={<ProductWrite />} />
-          
+
           <Route path='/test' element={<ProductManagementComponent />} />
-          
+
           <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/edit" element={ <ProductEdit product={product} />} />
+          <Route path="/edit" element={<ProductEdit product={product} />} />
+
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
 

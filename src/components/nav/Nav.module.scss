@@ -102,6 +102,11 @@ $transition-duration: 0.3s; // 애니메이션 지속 시간
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &:hover {
+        transform: scale(1.15);  // 호버 시 살짝 확대
+        transition: transform $transition-duration;
+      }
     }
     
     
@@ -151,22 +156,22 @@ $transition-duration: 0.3s; // 애니메이션 지속 시간
           border-bottom: 3px solid #fff;
   
           .link {
-            color: #fff;
+            color: $primary-color;
           }
         }
         
         .link {
           color: $text-color;
           text-decoration: none;
-          font-size: 20px;
+          font-size: 12px;
           font-weight: 700;
-          padding: 10px 15px;
+          padding: 10px 6px;
           transition: background-color 0.3s color 0.3s;
           border-radius: 4px;
   
           
           &:hover {
-            color: #fff;
+            color: $primary-color;
           }
         }  
       }

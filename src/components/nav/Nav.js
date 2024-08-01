@@ -25,7 +25,7 @@ export default function Nav() {
           </Link>
           <div style={{ width: '100px' }}></div>
           <ul>
-            <li>로그인</li>
+            <li><Link className={styles.link} to="/login">로그인</Link></li>
             <li>회원가입</li>
             <li>고객센터</li>
           </ul>
