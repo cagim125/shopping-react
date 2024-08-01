@@ -50,7 +50,7 @@ export default function Main() {
             products.map((product) => (
               <Link to={`/detail/${product.id}`}>
                 <div className={styles.sale} key={product.id}>
-                  <img style={{ width: '150px', height: '130px' }}
+                  <img style={{ width: '150px', height: '130px', borderRadius:'12px' }}
                     src={product.imgUrl ? product.imgUrl : 'https://placehold.co/150x130'}
                     alt='product img' />
                   <div>
