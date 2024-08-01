@@ -92,21 +92,6 @@ export default function Main() {
 
       </div>
 
-      <div className={styles.main2}>
-        {
-          data.category.map((category) => (
-            <div className={styles.category} key={category.id}>
-              <div className={styles.image}>
-                <Link to={category.path}  >
-                  <img src={category.image} alt='categoey Img' />
-                </Link>
-              </div>
-              <h4>{category.content}</h4> 
-            </div>
-          ))
-        }
-
-      </div>
     </div>
 
   )

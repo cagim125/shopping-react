@@ -21,6 +21,64 @@
       "path": "/test",
       "content": "Test"
     }
+  ],
 
+  "category" : [
+    {
+      "id": 1,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/email-marketing.png",
+      "content": "메일"
+    },
+    {
+      "id": 2,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/blogging.png",
+      "content": "블로그"
+    },
+    {
+      "id": 3,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/coffee.png",
+      "content": "카페"
+    },
+    {
+      "id": 4,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/add-to-cart.png",
+      "content": "쇼핑"
+    },
+    {
+      "id": 5,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/news.png",
+      "content": "뉴스"
+    },
+    {
+      "id": 6,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/google-maps.png",
+      "content": "지도"
+    },
+    {
+      "id": 7,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/storytelling.png",
+      "content": "도서"
+    },
+    {
+      "id": 8,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/calendar.png",
+      "content": "캘린더"
+    },
+    {
+      "id": 9,
+      "path": "#",
+      "image": "https://spring-test-bucket-123.s3.ap-northeast-2.amazonaws.com/category/cloudy.png",
+      "content": "날씨"
+    }
   ]
+
+
 }
