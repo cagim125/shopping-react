@@ -1,7 +1,7 @@
 @mixin item( $width,  $height, $overflow ) {
   width: $width;
   height: $height;
-  background-color: #eee;
+  background-color: white;
 
   border-radius: 12px;
   text-align: center;
@@ -13,7 +13,7 @@
 @mixin item1( $width,  $height) {
   width: $width;
   height: $height;
-  background-color: #eee;
+  // background: rgb(255 254, 255);
 
   border-radius: 12px;
   text-align: center;
@@ -27,7 +27,7 @@
 
   .grid_container {
     width: 80%;
-    height: 100vh;
+    height: 100%;
     margin: 16px auto;
     
     padding: 0.5rem;
@@ -39,20 +39,20 @@
     overflow: hidden; /* 부모 요소에서 넘치는 자식 요소를 숨김 */
 
     grid-template-areas:
-    "main main sidebar"
-    "main main sidebar"
-    "main main sidebar"
     "main2 main2 main2"
-    "main2 main2 main2"
-    "main3 main4 main5"
-    "main3 main4 main5"
+    "main main main"
+    "main main main"
+    "main main main"
+    "sidebar sidebar sidebar"
+    "sidebar sidebar sidebar"
+    "sidebar sidebar sidebar"
     "footer footer footer";
 
     
     .main {
       grid-area: main;
 
-      @include item(100%, 465px, hidden);
+      @include item(100%, 100%, hidden);
 
       .item {
         display: flex;
@@ -105,39 +105,50 @@
         align-items: center;
         justify-content: center;
 
-        gap: 20px;
-        
-        img {
-          border-radius: 12px;
-          border: none;
-          background-color: black;
+        h4{
+          color: #777;
         }
+
+        .image {
+          width: 45px;
+          height: 45px;
+          background-color: #eee;
+
+          border-radius: 8px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+
+        }
+        
       }
     }
 
-    .main3 {
-      grid-area: main3;
+    // .main3 {
+    //   grid-area: main3;
 
-      @include item(100%, 100%, hidden);
-    }
+    //   @include item(100%, 100%, hidden);
+    // }
 
-    .main4 {
-      grid-area: main4;
+    // .main4 {
+    //   grid-area: main4;
 
-      @include item(100%, 100%, hidden);
-    }
+    //   @include item(100%, 100%, hidden);
+    // }
 
-    .main5 {
-      grid-area: main5;
+    // .main5 {
+    //   grid-area: main5;
 
-      @include item(100%, 100%, hidden);
-    }
+    //   @include item(100%, 100%, hidden);
+    // }
 
     .sidebar {
       
       grid-area: sidebar;
       
-      @include item(100%, 465px, scroll);
+      @include item(100%, 100%, hidden);
 
       .title {
         display: flex;
@@ -185,26 +196,24 @@
 
   /* Media Queries */
 
-@media (max-width: 1200px) {
-  .grid_container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "main main"
-      "main main"
-      "main main"
-      "sidebar sidebar"
-      "sidebar sidebar"
-      "main2 main2"
-      "main3 main4"
-      "main5 main5"
-      "footer footer";
-  }
+// @media (max-width: 1200px) {
+//   .grid_container {
+//     grid-template-columns: repeat(2, 1fr);
+//     grid-template-areas:
+//       "main main"
+//       "main main"
+//       "main main"
+//       "sidebar sidebar"
+//       "sidebar sidebar"
+//       "main2 main2"
+//       "footer footer";
+//   }
 
-  .main, .main2, .main3, .main4, .main5, .sidebar {
-    @include item1(100%, auto); // 높이를 자동으로 조절
-  }
+//   .main, .main2, .main3, .main4, .main5, .sidebar {
+//     @include item1(100%, auto); // 높이를 자동으로 조절
+//   }
 
-}
+// }
 
 @media (max-width: 768px) {
   .grid_container {

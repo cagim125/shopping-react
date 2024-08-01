@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import data from '../../mainData.json';
+import data from './mainData.json';
 // import { useSelector } from 'react-redux';
 
 import styles from './Main.module.scss'
@@ -26,7 +26,7 @@ export default function Main() {
       const response = await axios.get('/api/products/nike');
       console.log(response.data);
       setNikes(response.data);
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
   }
@@ -74,16 +74,16 @@ export default function Main() {
           {
             nikes.map((nike) => (
               <Link to={`/detail/${nike.id}`}>
-              <div className={styles.nikeItem} key={nike.id}>
-                <img  
-                src={nike.imgUrl ? nike.imgUrl : 'https://placehold.co/200x150'}
-                alt='nike item'/>
+                <div className={styles.nikeItem} key={nike.id}>
+                  <img
+                    src={nike.imgUrl ? nike.imgUrl : 'https://placehold.co/200x150'}
+                    alt='nike item' />
 
-                <div className={styles.nikeContent}>
-                  <h4>{nike.name}</h4>
-                  <p>{nike.price}</p>
+                  <div className={styles.nikeContent}>
+                    <h4>{nike.name}</h4>
+                    <p>{nike.price}</p>
+                  </div>
                 </div>
-              </div>
               </Link>
             ))
           }
@@ -96,34 +96,17 @@ export default function Main() {
         {
           data.category.map((category) => (
             <div className={styles.category} key={category.id}>
-              <Link to={category.path}  >
-                <img src={category.image} style={{width:'54px',height:'54px', backgroundColor:'#eee'}} alt='categoey Img' />
-              </Link>
-              <div>
-                <h4>{category.content}</h4>  
+              <div className={styles.image}>
+                <Link to={category.path}  >
+                  <img src={category.image} alt='categoey Img' />
+                </Link>
               </div>
+              <h4>{category.content}</h4> 
             </div>
           ))
         }
 
       </div>
-
-      <div className={styles.main3}>
-        <h4>Main3</h4>
-
-      </div>
-
-      <div className={styles.main4}>
-        <h4>Main4</h4>
-
-      </div>
-
-      <div className={styles.main5}>
-        <h4>Main5</h4>
-
-      </div>
-
-
     </div>
 
   )
