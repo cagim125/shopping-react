@@ -16,6 +16,7 @@ import ProductManagementComponent from './components/ProductManagementComponent'
 import { useSelector } from 'react-redux';
 import Main from './components/product/Main';
 import Login from './components/user/Login';
+import Register from './components/user/Register';
 
 
 
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/edit" element={<ProductEdit product={product} />} />
 
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
 

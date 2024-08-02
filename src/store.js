@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { productsSlice } from './slice/productsSlice'
+import { userSlice } from './slice/UserSlice'
 
 // let user = createSlice({
 //   name: 'user',
@@ -15,6 +16,7 @@ export default configureStore({
   reducer: { 
     // user : user.reducer,
     // stock : stock.reducer,
-    products : productsSlice.reducer
+    products : productsSlice.reducer,
+    users : userSlice.reducer
   },
 }) 

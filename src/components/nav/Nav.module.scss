@@ -126,8 +126,6 @@ $transition-duration: 0.3s; // 애니메이션 지속 시간
 
   margin-bottom: 12px;
 
-  
-
   background-color: white;
   border-radius: 12px;
   padding: 0.5rem;
@@ -150,7 +148,7 @@ $transition-duration: 0.3s; // 애니메이션 지속 시간
     ul {
       list-style: none;
       display: flex;
-      padding: 10px 0;
+      // padding: 5px 0;
       font-weight: 600;
   
       li {
