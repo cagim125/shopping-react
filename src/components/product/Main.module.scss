@@ -52,6 +52,8 @@
       grid-area: main;
 
       @include item(100%, 100%, hidden);
+      
+      min-height: 400px;
 
       .item {
         display: flex;
@@ -126,11 +128,12 @@
       }
     }
 
-    .sidebar {
-      
+    .sidebar {      
       grid-area: sidebar;
       
       @include item(100%, 100%, hidden);
+
+      min-height: 400px;
 
       .title {
         display: flex;

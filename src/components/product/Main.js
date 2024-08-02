@@ -46,8 +46,8 @@ export default function Main() {
         <div className={styles.product}>
           {
             products.map((product) => (
-              <Link to={`/detail/${product.id}`}>
-                <div className={styles.sale} key={product.id}>
+              <Link to={`/detail/${product.id}`} key={product.id}>
+                <div className={styles.sale} >
                   <img style={{ width: '150px', height: '130px', borderRadius:'12px' }}
                     src={product.imgUrl ? product.imgUrl : 'https://placehold.co/150x130'}
                     alt='product img' />
@@ -71,8 +71,8 @@ export default function Main() {
         <div className={styles.nike}>
           {
             nikes.map((nike) => (
-              <Link to={`/detail/${nike.id}`}>
-                <div className={styles.nikeItem} key={nike.id}>
+              <Link to={`/detail/${nike.id}`} key={nike.id}>
+                <div className={styles.nikeItem} >
                   <img
                     src={nike.imgUrl ? nike.imgUrl : 'https://placehold.co/200x150'}
                     alt='nike item' />
