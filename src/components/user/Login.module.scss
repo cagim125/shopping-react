@@ -21,20 +21,30 @@
   justify-content: center;
   align-items: center;
 
-  input {
-   @include loginForm();
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
 
-   background-color: #f5f5f5;
+    input {
+      @include loginForm();
+
+      background-color: #f5f5f5;
+    }
+
+    button {
+      @include loginForm();
+
+      background-color: black;
+
+      color: white;
+
+      cursor: pointer;
+    }
   }
 
-  button {
-    @include loginForm();
 
-    background-color: black;
-    
-    color: white;
-
-    cursor: pointer;
-  }
 
 }
