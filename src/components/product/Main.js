@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './Main.module.scss'
 import axios from 'axios';
+import styles from './Main.module.scss';
 
 export default function Main() {
+  
+  
 
   const [products, setProducts] = useState([]);
   const [nikes, setNikes] = useState([]);
@@ -12,7 +14,7 @@ export default function Main() {
   const randomProducts = async () => {
     try {
       const response = await axios.get('/api/products/sale');
-      console.log(response);
+      // console.log(response);
       setProducts(response.data);
     } catch (err) {
       console.log(err);
@@ -22,7 +24,7 @@ export default function Main() {
   const nikeProducts = async () => {
     try {
       const response = await axios.get('/api/products/nike');
-      console.log(response.data);
+      // console.log(response.data);
       setNikes(response.data);
     } catch (err) {
       console.log(err);
