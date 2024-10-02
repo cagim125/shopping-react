@@ -1,15 +1,28 @@
+import axios from 'axios'
+import classNames from 'classnames'
 import React, { useState } from 'react'
-import styles from './Nav.module.scss'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import data from './Nav.json'
-import classNames from 'classnames'
+import styles from './Nav.module.scss'
 
 export default function Nav() {
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const user = useSelector((state) => state.users.member);
 
   const handleClick = (index) => {
     setActiveIndex(index);
+  }
+  const handleLogout = async () => {
+    try {
+      await axios.post('/logout');
+      alert('로그아웃 성공');
+      localStorage.removeItem('user');
+      window.location.href = '/';
+    } catch (error) {
+      console.error('로그아웃 에러 : ', error);
+    }
   }
 
   return (
@@ -25,9 +38,20 @@ export default function Nav() {
           </Link>
           <div style={{ width: '100px' }}></div>
           <ul>
-            <li><Link className={styles.link} to="/login">로그인</Link></li>
-            <li><Link className={styles.link} to="/register">회원가입</Link></li>
-            <li>고객센터</li>
+            {user && user.displayName ? (
+              <>
+                <li><h4>{user.displayName}</h4></li>
+                <li><Link className={styles.link} to="/mypage">마이페이지</Link></li>
+                <li> <p style={{cursor:'pointer'}} className={styles.link} onClick={handleLogout}>로그아웃</p></li>
+                <li>고객센터</li>
+              </>
+            ) : (
+              <>
+                <li><Link className={styles.link} to="/login">로그인</Link></li>
+                <li><Link className={styles.link} to="/join">회원가입</Link></li>
+                <li>고객센터</li>
+              </>
+            )}
           </ul>
         </div>
 
@@ -62,7 +86,7 @@ export default function Nav() {
           </ul>
         </div>
 
-        
+
 
       </nav>
 
