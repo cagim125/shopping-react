@@ -24,7 +24,7 @@ $transition-duration: 0.3s; // 애니메이션 지속 시간
   
   // List Items
   li {
-    margin: 0 15px;              // 리스트 간격
+    margin: 0 5px;              // 리스트 간격
     position: relative;          // 포지션 상대 설정 (애니메이션용)
   
     &:hover {
@@ -61,6 +61,7 @@ $transition-duration: 0.3s; // 애니메이션 지속 시간
       }
     }
   }
+
   
   // Links
   .link {
@@ -167,7 +168,6 @@ $transition-duration: 0.3s; // 애니메이션 지속 시간
           text-decoration: none;
           font-size: 12px;
           font-weight: 700;
-          padding: 10px 6px;
           transition: background-color 0.3s color 0.3s;
           border-radius: 4px;
   
