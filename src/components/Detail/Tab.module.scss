@@ -1,0 +1,38 @@
+.review {
+
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+  }
+
+  button {
+    width: 15%;
+    border: none;
+    border-radius: 8px;
+    background-color: black;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+
+.wrap {
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  
+  gap: 15px;
+  margin-bottom: 10px;
+}
