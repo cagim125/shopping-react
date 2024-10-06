@@ -5,7 +5,6 @@ export const userSlice = createSlice({
   initialState: {
     users: [],
     member: {},
-
   },
   reducers: {
     setUsers: (state, action) => {
@@ -14,7 +13,12 @@ export const userSlice = createSlice({
     setMember: (state, action) => {
       state.member = { ...state.member, ...action.payload};
     },
+    clearMember: (state) => {
+      state.member = null;
+    },
   }
 });
 
-export const { setUsers, setMember } = userSlice.actions;
+
+
+export const { setUsers, setMember, clearMember } = userSlice.actions;

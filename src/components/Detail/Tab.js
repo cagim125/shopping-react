@@ -32,7 +32,7 @@ export default function Tab({ tab, userId, productId }) {
         productId: productId,
         review : review
       });
-
+      console.log(response);
     } catch (error) {
       console.log("리뷰 등록 에러", error);
       alert("리뷰를 이미 등록하셨습니다.");

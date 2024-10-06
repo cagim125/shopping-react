@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { setProduct } from '../../slice/productsSlice';
+import { addSales, setSales } from '../../slice/salesSlice';
 import styles from './Detail.module.scss';
 import Tab from './Tab';
 
@@ -19,6 +20,7 @@ export default function Detail() {
 
   const product = useSelector((state) => state.products.product);
   const user = useSelector((state) => state.users.member);
+
 
 
   useEffect(() => {
@@ -44,8 +46,31 @@ export default function Detail() {
   const handleEditProduct = () => {
     navigate('/edit');
   }
+  const handleAddProduct = async () => {
+    const newSales = {
+      itemName : product.name,
+      price : product.price,
+      count : 1,
+      userId : 6
+    };
+    // console.log(newSales);
 
+    dispatch(setSales(newSales));
+    
+    dispatch(addSales());
+    // try {
+    //   const response = await axios.post("/api/sales/add", newSales, {
+    //     headers: {
+    //       'Content-Type' : 'application/json'
+    //     }
+    //   })
+    //   console.log(response);
 
+    // } catch (error) {
+    //   console.log("주문 에러", error)
+    // }
+
+  }
 
   // console.log("Product Data:", product);
   // console.log("user : ", user);
@@ -65,6 +90,7 @@ export default function Detail() {
             <h2> 브랜드 :  {product.description} </h2>
             <h3> 가격 : {product.price} </h3>
             <h3> 남은 수량 : {product.stock}</h3>
+            <button onClick={handleAddProduct} className={styles.buyBtn}>구매하기</button>
             {user.authorities === "[ROLE_ADMIN]"
               &&
               <button

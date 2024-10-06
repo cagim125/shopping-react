@@ -13,6 +13,15 @@
       flex-direction: column;
       justify-content: space-around;
       padding: 20px;
+
+      .buyBtn {
+        border: none;
+        border-radius: 8px;
+        padding: 12px;
+        color: white;
+        background: green;
+        cursor: pointer;
+      }
     }
 
     .edit {

@@ -59,9 +59,10 @@ export const productsSlice = createSlice({
 
 });
 
-export const { setProducts, setProduct, setPage, setSize, setPageGroup,  
-               setName, setDescription, setPrice, setStock, setImgUrl, 
-               setSearchValue
+export const { 
+  setProducts, setProduct, setPage, setSize, setPageGroup,
+  setName, setDescription, setPrice, setStock, setImgUrl,
+  setSearchValue
               } = productsSlice.actions;
 
 //제품 리스트 
