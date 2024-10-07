@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { setProduct } from '../../slice/productsSlice';
 import { addSales, setSales } from '../../slice/salesSlice';
+import { loadUserFromLocalStorage } from '../../slice/UserSlice';
 import styles from './Detail.module.scss';
 import Tab from './Tab';
 
@@ -31,8 +32,9 @@ export default function Detail() {
           dispatch(setProduct(response.data));
         })
     };
-
     getProduct();
+
+    dispatch(loadUserFromLocalStorage());
   }, [dispatch, id]);
 
   const tabs = [
@@ -46,12 +48,19 @@ export default function Detail() {
   const handleEditProduct = () => {
     navigate('/edit');
   }
-  const handleAddProduct = async () => {
+  const handleAddProduct = () => {
+
+    if (!user || user.userId === undefined) {
+      alert("로그인 해주세요");
+      navigate("/login");
+      return;
+    } 
+
     const newSales = {
       itemName : product.name,
       price : product.price,
       count : 1,
-      userId : 6
+      userId : user.userId
     };
     // console.log(newSales);
 
