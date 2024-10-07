@@ -35,7 +35,7 @@ export default function Admin() {
 
 
 
-  const totalPrice = orders.reduce((acc, order) => acc + order.price, 0);
+  const totalPrice = orders.reduce((acc, order) => acc + (order.price * order.count), 0);
 
 
   return (
@@ -46,7 +46,7 @@ export default function Admin() {
               <li>
                 <h5>{index + 1}</h5>
                 <h3>{order.itemName}</h3>
-                <p><strong>{formatPriceToKRW(order.price)}</strong></p>
+                <p><strong>{formatPriceToKRW(order.price * order.count) }</strong></p>
                 <p>수량 : {order.count}</p>
               </li>
           </ul>
