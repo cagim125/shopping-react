@@ -4,8 +4,9 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styles from './App.module.scss';
 
+
 import { useDispatch } from 'react-redux';
-import { setMember } from './slice/UserSlice';
+// import { setMember } from './slice/UserSlice';
 // import axios from 'axios';
 
 
@@ -21,6 +22,7 @@ import ProductManagementComponent from './components/ProductManagementComponent'
 import Admin from './components/user/Admin';
 import Login from './components/user/Login';
 import Register from './components/user/Register';
+import { loadUserFromLocalStorage } from './slice/UserSlice';
 
 
 
@@ -33,10 +35,7 @@ export default function App() {
   const product = useSelector((state) => state.products.product);
 
   useEffect(() => {
-    const storeUser = localStorage.getItem("user");
-
-    dispatch(setMember(storeUser));
-
+    dispatch(loadUserFromLocalStorage());
   }, [])
 
   

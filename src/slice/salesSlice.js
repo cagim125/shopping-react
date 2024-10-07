@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
+
 export const salesSlice = createSlice({
   name: 'sales',
   initialState: {
@@ -24,7 +26,7 @@ export const addSales = () => async (_,getState) => {
       'Content-Type' : 'application/json'
     }
   })
-  console.log(response);
+  alert(response.data);
 }
 
 

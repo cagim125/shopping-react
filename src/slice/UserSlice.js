@@ -20,5 +20,14 @@ export const userSlice = createSlice({
 });
 
 
-
 export const { setUsers, setMember, clearMember } = userSlice.actions;
+
+
+export const loadUserFromLocalStorage = () => (dispatch) =>{
+  const storeUser = localStorage.getItem("user");
+  
+  if (storeUser) {
+    dispatch(setMember(JSON.parse(storeUser)));
+  } 
+  
+}
