@@ -41,7 +41,7 @@ export default function Tab({ tab, userId, productId }) {
 
   useEffect(() => {
     handleReview();
-  }, [])
+  }, [productId])
 
   console.log(reviews);
 
